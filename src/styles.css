@@ -6,6 +6,8 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --green-40: #22251B;
+  --green-45: #4b503b;
   --green-60: #CAFF33;
   --green-65: #D1FF4D;
   --green-70: #D8FF66;
@@ -147,6 +149,8 @@
   --breakpoint-2xl: 90rem;
   --breakpoint-3xl: 120rem;
 
+  --color-green-40: var(--green-40);
+  --color-green-45: var(--green-45);
   --color-green-60: var(--green-60);
   --color-green-65: var(--green-65);
   --color-green-70: var(--green-70);

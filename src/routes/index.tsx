@@ -1,3 +1,4 @@
+import Hero from '#/components/Hero'
 import Nav from '#/components/Nav'
 import { createFileRoute } from '@tanstack/react-router'
 
@@ -7,6 +8,7 @@ function Home() {
   return (
     <>
       <Nav withBackground />
+      <Hero />
     </>
   )
 }

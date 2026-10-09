@@ -19,6 +19,7 @@ const textVariants = cva(
         "grey-60": "text-grey-60",
         "green-60": "text-green-60",
         "white": "text-white",
+        "white-90": "text-white-90",
       },
       size: {
         default: "text-[14px] md:text-[16px] 3xl:text-[18px]",
