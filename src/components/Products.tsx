@@ -88,7 +88,7 @@ interface TitleBlockProps {
   className?: string
 }
 
-const TitleBlock: React.FC<TitleBlockProps> = ({ className, title, description, buttons }) => {
+export const TitleBlock: React.FC<TitleBlockProps> = ({ className, title, description, buttons }) => {
   return (
     <div
       className={cn(
@@ -182,7 +182,7 @@ interface IconContainerProps {
   className?: string
 }
 
-const IconContainer: React.FC<IconContainerProps> = ({
+export const IconContainer: React.FC<IconContainerProps> = ({
   className,
   children,
 }) => {
