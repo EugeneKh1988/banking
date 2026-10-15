@@ -96,7 +96,7 @@ export const TitleBlock: React.FC<TitleBlockProps> = ({ className, title, descri
         className,
       )}
     >
-      <div className='md:max-w-831 3xl:max-w-910'>
+      <div className={buttons ? 'md:max-w-831 3xl:max-w-910': 'md:max-w-1030 3xl:max-w-1296'}>
         <Text size="lg" color="white" className='font-medium text-center md:text-left capitalize'>
           {title}
         </Text>

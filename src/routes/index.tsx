@@ -1,3 +1,4 @@
+import FeatureWrapper from '#/components/Features'
 import Hero from '#/components/Hero'
 import Nav from '#/components/Nav'
 import Products from '#/components/Products'
@@ -13,6 +14,7 @@ function Home() {
       <Hero />
       <Products />
       <UseCasesWrapper />
+      <FeatureWrapper />
     </>
   )
 }

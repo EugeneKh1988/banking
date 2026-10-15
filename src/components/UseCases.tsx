@@ -145,7 +145,7 @@ interface UseCaseProps extends UseCasesWrapperProps {
 const UseCase: React.FC<UseCaseProps> = ({ className, variant, evenRow }) => {
   return (
     <div className={cn('flex flex-col lg:flex-row gap-40 lg:gap-60 3xl:gap-100', className)}>
-      <UseCaseFeatures features={variant.features} className="lg:w-1/2" />
+      <UseCaseFeatures features={variant.features} className="lg:w-1/2" abstractRight={!evenRow} />
       <UseCaseDescription
         name={variant.name}
         description={variant.description}
@@ -180,7 +180,7 @@ const UseCaseFeatures: React.FC<UseCaseFeaturesProps> = ({
         src="/usecase-abstract.svg"
         width={224}
         height={213}
-        className={`absolute top-0 -z-1 max-w-118 md:max-w-224 ${abstractRight ? 'right-0' : 'left-0'}`}
+        className={`absolute -z-1 max-w-118 md:max-w-224 ${abstractRight ? 'rotate-90 -top-5 right-0' : 'top-0 left-0'}`}
       />
       {features.map((feature, index) => (
         <UseCaseFeature feature={feature} key={index} />
