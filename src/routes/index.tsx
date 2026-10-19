@@ -1,3 +1,4 @@
+import FaqWrapper from '#/components/Faq'
 import FeatureWrapper from '#/components/Features'
 import Hero from '#/components/Hero'
 import Nav from '#/components/Nav'
@@ -15,6 +16,7 @@ function Home() {
       <Products />
       <UseCasesWrapper />
       <FeatureWrapper />
+      <FaqWrapper />
     </>
   )
 }
