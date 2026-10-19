@@ -13,7 +13,7 @@ const CaretDown = ({ className, ...props }: SVGProps<SVGSVGElement>) => {
       className={cn(className)}
       {...props}
     >
-      <path d="M16.5 8.25L11 13.75L5.5 8.25" stroke-width="2" stroke="currentColor" />
+      <path d="M16.5 8.25L11 13.75L5.5 8.25" strokeWidth="2" stroke="currentColor" />
     </svg>
   )
 }
