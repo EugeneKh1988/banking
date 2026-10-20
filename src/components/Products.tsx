@@ -109,7 +109,7 @@ export const TitleBlock: React.FC<TitleBlockProps> = ({ className, title, descri
   )
 }
 
-const TitleButtons: React.FC<ProductsProps> = ({ className }) => {
+export const TitleButtons: React.FC<ProductsProps> = ({ className }) => {
   const {activeType, setActiveType} = useProduct();
   return (
     <div
