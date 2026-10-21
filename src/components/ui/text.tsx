@@ -28,6 +28,7 @@ const textVariants = cva(
         xs1: "text-[18px] md:text-[18px] 3xl:text-[20px]",
         sm: "text-[18px] md:text-[20px] 3xl:text-[24px]",
         sm1: "text-[20px] md:text-[24px] 3xl:text-[30px]",
+        sm2: "text-[24px] md:text-[30px] 3xl:text-[40px]",
         lg: "text-[28px] md:text-[38px] 3xl:text-[48px]",
         xl: "text-[30px] md:text-[40px] 3xl:text-[58px]",
         xl1: "text-[28px] md:text-[48px] 3xl:text-[58px]",

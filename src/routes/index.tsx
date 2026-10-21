@@ -1,3 +1,4 @@
+import CTA from '#/components/CTA'
 import FaqWrapper from '#/components/Faq'
 import FeatureWrapper from '#/components/Features'
 import Hero from '#/components/Hero'
@@ -19,6 +20,7 @@ function Home() {
       <FeatureWrapper />
       <FaqWrapper />
       <TestimonialsWrapper />
+      <CTA />
     </>
   )
 }
