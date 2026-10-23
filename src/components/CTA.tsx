@@ -11,7 +11,7 @@ interface CTAProps {
 const CTA: React.FC<CTAProps> = ({ className }) => {
   return (
     <Container className={cn('mt-80 md:mt-120 3xl:mt-150', className)}>
-      <div className="p-30 lg:p-60 3xl:p-80 rounded-[20px] overflow-hidden relative flex flex-col md:flex-row md:justify-between gap-24 items-center">
+      <div className="p-30 lg:p-60 3xl:p-80 rounded-[20px] overflow-hidden relative flex flex-col md:flex-row md:justify-between gap-24 items-center border border-grey-15">
         <div className="absolute top-0 left-0 right-0 bottom-0 -z-3 bg-grey-11"></div>
         <div className="absolute top-0 left-0 right-0 bottom-0 -z-2 bg-linear-60 from-41% from-grey-11 to-grey-11/0"></div>
         <Image src='/cta-abstract.svg' width={298} height={283} className='absolute top-0 left-0 max-w-151 md:max-w-202 3xl:max-w-298' />

@@ -14,7 +14,7 @@ interface NavProps {
   className?: string
 }
 
-const links = linkOptions([
+export const links = linkOptions([
   {
     to: "/",
     label: "Home",
