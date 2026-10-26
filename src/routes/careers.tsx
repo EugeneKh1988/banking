@@ -1,3 +1,8 @@
+import CareerHero from '#/components/CareerHero'
+import CTA from '#/components/CTA'
+import FaqWrapper from '#/components/Faq'
+import Footer from '#/components/Footer'
+import Nav from '#/components/Nav'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/careers')({
@@ -5,5 +10,13 @@ export const Route = createFileRoute('/careers')({
 })
 
 function RouteComponent() {
-  return <div>Hello "/careers"!</div>
+  return (
+    <>
+      <Nav />
+      <CareerHero />
+      <FaqWrapper />
+      <CTA />
+      <Footer />
+    </>
+  )
 }

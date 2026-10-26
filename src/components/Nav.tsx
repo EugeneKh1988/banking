@@ -45,12 +45,14 @@ interface NavBarProps extends NavProps {
 const Nav: React.FC<NavBarProps> = ({ className, withBackground }) => {
   return (
     <div {...{ className: withBackground ? 'relative' : undefined }}>
-      <Image
-        src="/home-abstract.svg"
-        width={759}
-        height={610}
-        className="absolute -z-1 w-382 h-307 md:w-546 md:h-440 -top-20 left-0 3xl:w-759 3xl:h-610"
-      />
+      {withBackground && (
+        <Image
+          src="/home-abstract.svg"
+          width={759}
+          height={610}
+          className="absolute -z-1 w-382 h-307 md:w-546 md:h-440 -top-20 left-0 3xl:w-759 3xl:h-610"
+        />
+      )}
       <Container className="pt-40 md:pt-30 3xl:pt-50">
         <div
           className={cn(

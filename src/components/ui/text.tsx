@@ -36,6 +36,7 @@ const textVariants = cva(
       leading: {
         default: "leading-[150%]",
         "leading-120": "leading-[120%]",
+        "leading-130": "leading-[130%]",
       },
       font: {
         default: "font-lexend",
