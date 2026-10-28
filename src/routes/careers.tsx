@@ -1,3 +1,4 @@
+import BenefitsWrapper from '#/components/Benefits'
 import CareerHero from '#/components/CareerHero'
 import CTA from '#/components/CTA'
 import FaqWrapper from '#/components/Faq'
@@ -16,6 +17,7 @@ function RouteComponent() {
       <Nav />
       <CareerHero />
       <ValuesWrapper />
+      <BenefitsWrapper />
       <FaqWrapper />
       <CTA />
       <Footer />
