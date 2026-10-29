@@ -3,6 +3,7 @@ import CareerHero from '#/components/CareerHero'
 import CTA from '#/components/CTA'
 import FaqWrapper from '#/components/Faq'
 import Footer from '#/components/Footer'
+import JobsWrapper from '#/components/Jobs'
 import Nav from '#/components/Nav'
 import ValuesWrapper from '#/components/Values'
 import { createFileRoute } from '@tanstack/react-router'
@@ -18,6 +19,7 @@ function RouteComponent() {
       <CareerHero />
       <ValuesWrapper />
       <BenefitsWrapper />
+      <JobsWrapper />
       <FaqWrapper />
       <CTA />
       <Footer />
