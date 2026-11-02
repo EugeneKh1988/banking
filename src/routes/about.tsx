@@ -1,5 +1,6 @@
 import CareerHero from '#/components/CareerHero'
 import Footer from '#/components/Footer'
+import MissionWrapper from '#/components/Mission'
 import Nav from '#/components/Nav'
 import { createFileRoute } from '@tanstack/react-router'
 
@@ -21,6 +22,7 @@ function RouteComponent() {
         img="/about-hero.png"
         subtitle='Welcome to YourBank'
       />
+      <MissionWrapper />
       <Footer />
     </>
   )
