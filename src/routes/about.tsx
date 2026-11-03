@@ -2,6 +2,7 @@ import CareerHero from '#/components/CareerHero'
 import Footer from '#/components/Footer'
 import MissionWrapper from '#/components/Mission'
 import Nav from '#/components/Nav'
+import PressWrapper from '#/components/Press'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/about')({
@@ -23,6 +24,7 @@ function RouteComponent() {
         subtitle='Welcome to YourBank'
       />
       <MissionWrapper />
+      <PressWrapper />
       <Footer />
     </>
   )
