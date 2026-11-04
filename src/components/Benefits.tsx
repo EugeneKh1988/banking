@@ -11,7 +11,7 @@ interface BenefitsWrapperProps {
   className?: string
 }
 
-interface IBenefit {
+export interface IBenefit {
   icon: React.ReactNode,
   title: string,
   description: string,
