@@ -21,7 +21,7 @@ interface IContact {
   value: string
 }
 
-interface ISocial {
+export interface ISocial {
   icon: React.ReactNode,
   link: string
 }

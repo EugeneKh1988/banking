@@ -179,12 +179,14 @@ const ProductItem: React.FC<ProductItemProps> = ({ className, product }) => {
 
 interface IconContainerProps {
   children: React.ReactNode
-  className?: string
+  className?: string,
+  innerCircleClassName?: string
 }
 
 export const IconContainer: React.FC<IconContainerProps> = ({
   className,
   children,
+  innerCircleClassName,
 }) => {
   return (
     <div
@@ -194,8 +196,13 @@ export const IconContainer: React.FC<IconContainerProps> = ({
         className,
       )}
     >
-      <div className='flex justify-center items-center p-2 rounded-full bg-linear-to-b from-green-60/5 to-67% to-green-60/0'>
-        <div className="flex justify-center items-center p-14 rounded-full bg-linear-to-b from-green-60/10 to-67% to-green-60/0">
+      <div className="flex justify-center items-center p-2 rounded-full bg-linear-to-b from-green-60/5 to-67% to-green-60/0">
+        <div
+          className={cn(
+            'flex justify-center items-center p-14 rounded-full bg-linear-to-b from-green-60/10 to-67% to-green-60/0',
+            innerCircleClassName,
+          )}
+        >
           {children}
         </div>
       </div>

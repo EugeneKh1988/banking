@@ -123,7 +123,7 @@ const NavAuthButtons: React.FC<NavProps> = ({ className }) => {
             <Text size='xs' color='white'>Sign Up</Text>
           </Link>
           <Link
-            to="/"
+            to="/login"
             className="px-24 py-12 3xl:px-30 3xl:py-14 bg-green-60 rounded-[82px]"
           >
             <Text size='xs' color="grey-11">Login</Text>

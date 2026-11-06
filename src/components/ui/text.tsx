@@ -18,6 +18,7 @@ const textVariants = cva(
         "grey-40": "text-grey-40",
         "grey-60": "text-grey-60",
         "grey-70": "text-grey-70",
+        "grey-75": "text-grey-75",
         "green-60": "text-green-60",
         "white": "text-white",
         "white-90": "text-white-90",
