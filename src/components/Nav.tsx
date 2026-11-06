@@ -119,7 +119,7 @@ const NavAuthButtons: React.FC<NavProps> = ({ className }) => {
           exit={{ opacity: 0, scale: 0 }}
           className={cn('gap-20 3xl:gap-30 items-center', className)}
         >
-          <Link to="/">
+          <Link to="/register">
             <Text size='xs' color='white'>Sign Up</Text>
           </Link>
           <Link

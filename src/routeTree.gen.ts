@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as SecurityRouteImport } from './routes/security'
 import { Route as authLoginRouteImport } from './routes/(auth)/login'
+import { Route as authRegisterRouteImport } from './routes/(auth)/register'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 
 const IndexRoute = IndexRouteImport.update({
@@ -41,6 +42,11 @@ const authLoginRoute = authLoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const authRegisterRoute = authRegisterRouteImport.update({
+  id: '/(auth)/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/careers': typeof CareersRoute
   '/security': typeof SecurityRoute
   '/login': typeof authLoginRoute
+  '/register': typeof authRegisterRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRoutesByTo {
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/careers': typeof CareersRoute
   '/security': typeof SecurityRoute
   '/login': typeof authLoginRoute
+  '/register': typeof authRegisterRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRoutesById {
@@ -70,14 +78,28 @@ export interface FileRoutesById {
   '/careers': typeof CareersRoute
   '/security': typeof SecurityRoute
   '/(auth)/login': typeof authLoginRoute
+  '/(auth)/register': typeof authRegisterRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/about' | '/careers' | '/security' | '/login' | '/api/auth/$'
+    | '/'
+    | '/about'
+    | '/careers'
+    | '/security'
+    | '/login'
+    | '/register'
+    | '/api/auth/$'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/careers' | '/security' | '/login' | '/api/auth/$'
+  to:
+    | '/'
+    | '/about'
+    | '/careers'
+    | '/security'
+    | '/login'
+    | '/register'
+    | '/api/auth/$'
   id:
     | '__root__'
     | '/'
@@ -85,6 +107,7 @@ export interface FileRouteTypes {
     | '/careers'
     | '/security'
     | '/(auth)/login'
+    | '/(auth)/register'
     | '/api/auth/$'
   fileRoutesById: FileRoutesById
 }
@@ -94,6 +117,7 @@ export interface RootRouteChildren {
   CareersRoute: typeof CareersRoute
   SecurityRoute: typeof SecurityRoute
   authLoginRoute: typeof authLoginRoute
+  authRegisterRoute: typeof authRegisterRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
 
@@ -134,6 +158,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof authLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/(auth)/register': {
+      id: '/(auth)/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof authRegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/auth/$': {
       id: '/api/auth/$'
       path: '/api/auth/$'
@@ -150,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   CareersRoute: CareersRoute,
   SecurityRoute: SecurityRoute,
   authLoginRoute: authLoginRoute,
+  authRegisterRoute: authRegisterRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
 }
 export const routeTree = rootRouteImport

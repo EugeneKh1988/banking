@@ -63,7 +63,7 @@ interface AbstractContainerProps {
   className?: string
 }
 
-const AbstractContainer: React.FC<AbstractContainerProps> = ({ className, children }) => {
+export const AbstractContainer: React.FC<AbstractContainerProps> = ({ className, children }) => {
   return (
     <Container className={cn('mt-30 md:mt-50 3xl:mt-53', className)}>
       <div className="mx-auto w-full md:max-w-1064 3xl:max-w-1326 p-30 md:px-200 md:py-80 3xl:px-150 3xl:py-100 rounded-2xl border border-grey-15 relative overflow-hidden">
@@ -90,7 +90,7 @@ interface TitleProps {
   className?: string
 }
 
-const Title: React.FC<TitleProps> = ({ className, title, description }) => {
+export const Title: React.FC<TitleProps> = ({ className, title, description }) => {
   return (
     <div className={cn('text-center', className)}>
       <Text className="font-medium" color="green-60" size="lg">
@@ -153,17 +153,20 @@ const LoginForm: React.FC<LoginFormProps> = ({ className }) => {
         <form.AppForm>
           <form.SubscribeButton label="Login" className="md:w-full" />
         </form.AppForm>
-        <Link to='/' className='w-full text-center cursor-pointer rounded-[63px] text-white leading-[150%] text-[14px] 3xl:text-[18px] px-24 py-14 3xl:py-18 bg-grey-15 hover:bg-grey-20 active:bg-grey-20 border border-grey-20'>
+        <Link to='/register' className='w-full text-center cursor-pointer rounded-[63px] text-white leading-[150%] text-[14px] 3xl:text-[18px] px-24 py-14 3xl:py-18 bg-grey-15 hover:bg-grey-20 active:bg-grey-20 border border-grey-20'>
           Sign Up
         </Link>
-        <AdditionalAuth />
+        <AdditionalAuth socials={socials} />
       </div>
     </form>
   )
 }
 
+interface AdditionalAuthProps extends LoginFormProps {
+  socials: ISocial[]
+}
 
-const AdditionalAuth: React.FC<LoginFormProps> = ({ className }) => {
+export const AdditionalAuth: React.FC<AdditionalAuthProps> = ({ className, socials }) => {
   return (
     <div className={cn('mt-24', className)}>
       <div className='flex gap-16 justify-between items-center'>
@@ -176,11 +179,8 @@ const AdditionalAuth: React.FC<LoginFormProps> = ({ className }) => {
   )
 }
 
-interface SocialsProps extends LoginFormProps {
-  socials: ISocial[]
-}
 
-const Socials: React.FC<SocialsProps> = ({ className, socials }) => {
+const Socials: React.FC<AdditionalAuthProps> = ({ className, socials }) => {
   return (
     <div
       className={cn(

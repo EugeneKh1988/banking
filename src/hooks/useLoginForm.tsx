@@ -10,12 +10,11 @@ import { InputGroupInlineEnd, SubscribeButton, TextField } from '#/routes/(auth)
 const formSchema = z.object({
   email: z.email('Invalid email'),
   password: z.string().min(8, 'Min 8 symbols').max(255, 'Max 255 symbols'),
-  rememberMe: z.boolean(),
 })
 
 export type TLoginForm = z.infer<typeof formSchema>
 
-const defaultValues: TLoginForm = { email: '', password: '', rememberMe: false }
+const defaultValues: TLoginForm = { email: '', password: '' }
 
 const formOpts = formOptions({ defaultValues })
 
@@ -49,7 +48,6 @@ export default function useLoginForm() {
         {
           email: value.email,
           password: value.password,
-          rememberMe: value.rememberMe,
           callbackURL: '/',
         },
         {
