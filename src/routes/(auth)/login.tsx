@@ -145,7 +145,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ className }) => {
         />
       </div>
       <div className="text-center mt-24 md:mt-30 3xl:mt-40">
-        <Link to="/" className="underline underline-offset-2">
+        <Link to="/forgot-password" className="underline underline-offset-2">
           <Text color="white">Forgot Password?</Text>
         </Link>
       </div>
