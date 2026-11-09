@@ -13,17 +13,17 @@ const PasswordReset = ({ name, url }: PasswordResetProps) => {
     <Html>
       <Head />
       <Tailwind config={tailwindConfig}>
-        <Body className="bg-orange-97">
+        <Body className="bg-grey-10">
           <Preview>Click the link to reset your password</Preview>
           <Container className="bg-white rounded-[6px] p-5 mt-3">
             {/** header */}
             <EmailHeader />
             {/** main content */}
-            <Section className="bg-orange-97 rounded-[6px] px-4 py-5 mt-3 text-center">
-              <Heading as="h1" className="font-28 text-orange-65 m-0 font-sans">
+            <Section className="bg-grey-10 rounded-[6px] px-4 py-5 mt-3 text-center">
+              <Heading as="h1" className="font-28 text-green-60 m-0 font-sans">
                 Reset your password
               </Heading>
-              <Text className="text-[16px] text-grey-30 mx-auto mt-2 mb-8 max-w-[380px] text-center font-sans font-medium">
+              <Text className="text-[16px] text-white mx-auto mt-2 mb-8 max-w-[380px] text-center font-sans font-medium">
                 Hello {name}!
                 <br />
                 Someone has requested a link to change your
@@ -31,12 +31,12 @@ const PasswordReset = ({ name, url }: PasswordResetProps) => {
                 password, and you can do this through the link below.
               </Text>
               <Button
-                className="bg-orange-65 text-grey-15 rounded-lg px-7 py-4 text-center font-sans leading-[150%] font-medium"
+                className="bg-green-60 text-grey-11 rounded-lg px-7 py-4 text-center font-sans leading-[150%] font-medium"
                 href={url}
               >
                 Change password
               </Button>
-              <Text className="text-[12px] text-grey-15 mx-auto mt-6 mb-0 max-w-[400px] text-center font-sans leading-[150%]">
+              <Text className="text-[12px] text-grey-30 mx-auto mt-6 mb-0 max-w-[400px] text-center font-sans leading-[150%]">
                 If you didn&apos;t request this, please ignore this email.
                 <br />
                 Your password won't change until you access the link above and create a new one.
