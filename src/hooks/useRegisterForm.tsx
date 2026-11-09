@@ -48,7 +48,8 @@ export default function useRegisterForm() {
             
       await authClient.signUp.email(
         {
-          name: `${value.name} ${value.lastName}`,
+          name: value.name,
+          lastName: value.lastName,
           email: value.email,
           password: value.password,
           callbackURL: "/",

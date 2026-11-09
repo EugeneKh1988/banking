@@ -30,6 +30,13 @@ export const auth = betterAuth({
     changeEmail: {
       enabled: true,
     },
+    additionalFields: {
+      lastName: {
+        type: 'string',
+        input: true,
+        required: true,
+      },
+    },
   },
   database: drizzleAdapter(db, { provider: 'pg' }),
   plugins: [
