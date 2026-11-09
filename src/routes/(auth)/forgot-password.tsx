@@ -19,7 +19,7 @@ function RouteComponent() {
           title="Forgot password"
           description="You will receive email notification"
         />
-        <RegisterForm />
+        <ForgotPasswordForm />
       </AbstractContainer>
       <TestimonialsWrapper />
       <Footer />
@@ -27,11 +27,11 @@ function RouteComponent() {
   )
 }
 
-interface RegisterFormProps {
+interface ForgotPasswordFormProps {
   className?: string
 }
 
-const RegisterForm: React.FC<RegisterFormProps> = ({ className }) => {
+const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({ className }) => {
   const { form } = useForgotPasswordForm()
   return (
     <form
