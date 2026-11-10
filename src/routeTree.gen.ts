@@ -17,7 +17,10 @@ import { Route as authForgotPasswordRouteImport } from './routes/(auth)/forgot-p
 import { Route as authLoginRouteImport } from './routes/(auth)/login'
 import { Route as authRegisterRouteImport } from './routes/(auth)/register'
 import { Route as authResetPasswordRouteImport } from './routes/(auth)/reset-password'
+import { Route as DashboardAuthRouteImport } from './routes/dashboard/_auth'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
+import { Route as DashboardAuthIndexRouteImport } from './routes/dashboard/_auth.index'
+import { Route as DashboardAuthAccountRouteImport } from './routes/dashboard/_auth.account'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -59,10 +62,25 @@ const authResetPasswordRoute = authResetPasswordRouteImport.update({
   path: '/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardAuthRoute = DashboardAuthRouteImport.update({
+  id: '/dashboard/_auth',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardAuthIndexRoute = DashboardAuthIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DashboardAuthRoute,
+} as any)
+const DashboardAuthAccountRoute = DashboardAuthAccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => DashboardAuthRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -74,7 +92,10 @@ export interface FileRoutesByFullPath {
   '/login': typeof authLoginRoute
   '/register': typeof authRegisterRoute
   '/reset-password': typeof authResetPasswordRoute
+  '/dashboard': typeof DashboardAuthRouteWithChildren
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/dashboard/account': typeof DashboardAuthAccountRoute
+  '/dashboard/': typeof DashboardAuthIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -86,6 +107,8 @@ export interface FileRoutesByTo {
   '/register': typeof authRegisterRoute
   '/reset-password': typeof authResetPasswordRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/dashboard/account': typeof DashboardAuthAccountRoute
+  '/dashboard': typeof DashboardAuthIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -97,7 +120,10 @@ export interface FileRoutesById {
   '/(auth)/login': typeof authLoginRoute
   '/(auth)/register': typeof authRegisterRoute
   '/(auth)/reset-password': typeof authResetPasswordRoute
+  '/dashboard/_auth': typeof DashboardAuthRouteWithChildren
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/dashboard/_auth/account': typeof DashboardAuthAccountRoute
+  '/dashboard/_auth/': typeof DashboardAuthIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -110,7 +136,10 @@ export interface FileRouteTypes {
     | '/login'
     | '/register'
     | '/reset-password'
+    | '/dashboard'
     | '/api/auth/$'
+    | '/dashboard/account'
+    | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,6 +151,8 @@ export interface FileRouteTypes {
     | '/register'
     | '/reset-password'
     | '/api/auth/$'
+    | '/dashboard/account'
+    | '/dashboard'
   id:
     | '__root__'
     | '/'
@@ -132,7 +163,10 @@ export interface FileRouteTypes {
     | '/(auth)/login'
     | '/(auth)/register'
     | '/(auth)/reset-password'
+    | '/dashboard/_auth'
     | '/api/auth/$'
+    | '/dashboard/_auth/account'
+    | '/dashboard/_auth/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -144,6 +178,7 @@ export interface RootRouteChildren {
   authLoginRoute: typeof authLoginRoute
   authRegisterRoute: typeof authRegisterRoute
   authResetPasswordRoute: typeof authResetPasswordRoute
+  DashboardAuthRoute: typeof DashboardAuthRouteWithChildren
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
 
@@ -205,6 +240,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof authResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard/_auth': {
+      id: '/dashboard/_auth'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardAuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/auth/$': {
       id: '/api/auth/$'
       path: '/api/auth/$'
@@ -212,8 +254,36 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAuthSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard/_auth/': {
+      id: '/dashboard/_auth/'
+      path: '/'
+      fullPath: '/dashboard/'
+      preLoaderRoute: typeof DashboardAuthIndexRouteImport
+      parentRoute: typeof DashboardAuthRoute
+    }
+    '/dashboard/_auth/account': {
+      id: '/dashboard/_auth/account'
+      path: '/account'
+      fullPath: '/dashboard/account'
+      preLoaderRoute: typeof DashboardAuthAccountRouteImport
+      parentRoute: typeof DashboardAuthRoute
+    }
   }
 }
+
+interface DashboardAuthRouteChildren {
+  DashboardAuthAccountRoute: typeof DashboardAuthAccountRoute
+  DashboardAuthIndexRoute: typeof DashboardAuthIndexRoute
+}
+
+const DashboardAuthRouteChildren: DashboardAuthRouteChildren = {
+  DashboardAuthAccountRoute: DashboardAuthAccountRoute,
+  DashboardAuthIndexRoute: DashboardAuthIndexRoute,
+}
+
+const DashboardAuthRouteWithChildren = DashboardAuthRoute._addFileChildren(
+  DashboardAuthRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -224,6 +294,7 @@ const rootRouteChildren: RootRouteChildren = {
   authLoginRoute: authLoginRoute,
   authRegisterRoute: authRegisterRoute,
   authResetPasswordRoute: authResetPasswordRoute,
+  DashboardAuthRoute: DashboardAuthRouteWithChildren,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
 }
 export const routeTree = rootRouteImport

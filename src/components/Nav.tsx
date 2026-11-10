@@ -32,7 +32,7 @@ export const links = linkOptions([
     label: "Security",
   },
   {
-    to: "/",
+    to: "/dashboard",
     label: "Dashboard",
     auth: true,
   },
